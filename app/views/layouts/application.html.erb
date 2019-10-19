@@ -17,6 +17,7 @@
     <nav class="navbar">
         <div class="navbar_container clearfix">
           <a class="navbar-title"><%= link_to '大阪スパイスカレー図鑑', shops_path %></a>
+          <li><%= link_to "管理者ログアウト　", destroy_administrator_page_session_path, method: :delete%></li>
 
           <ul class="navbar-right">
             <% if user_signed_in? %>
