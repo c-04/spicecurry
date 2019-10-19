@@ -1,0 +1,29 @@
+<h1>店舗編集ページ</h1>
+
+<%= form_for(@shop, url: administrator_pages_shop_path, method: :patch) do |f| %>
+
+
+    <h4>店舗名</h4>
+    <%= f.text_field :name %>
+
+    <h4>店舗名カナ</h4>
+    <%= f.text_field :kana_name %>
+
+    <h4>画像</h4>
+    <%= f.attachment_field :image %>
+
+    <h4>最寄駅</h4>
+    <%= f.text_field :station %>
+
+    <h4>場所</h4>
+    <%= f.text_field :place %>
+
+    <h4>Instagram</h4>
+    <%= f.text_field :instagram %>
+
+
+
+    <%= f.submit '保存' %>
+    <%= link_to "Delete", administrator_pages_shop_path(@shop), method: :delete,class: 'btn-sm btn-danger ',"data-confirm" => "本当に削除しますか？"%>
+
+<% end %>

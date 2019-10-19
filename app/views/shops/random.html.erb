@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="container">
+    <div class="inner">
+      <div class="show-box">
+      <%  @shops.each do |shop|%>
+          <ul>
+            <div class="shop-show-img">
+                <%= attachment_image_tag @shop, :image,fallback: "no_image.jpg", size:'400x400'%>
+            </div>
+            <h1><li><%= shop.name %></li></h1>
+            <li>最寄駅：<%= shop.station %></li>
+
+
+            <%= link_to shop.place, target: :_blank do %>
+            <li><%= shop.place_name %></li>
+            <% end %>
+
+            <%= link_to shop.instagram, target: :_blank do %>
+            <li><i class="fab fa-instagram"></i></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <h1><%= link_to 'トップに戻る',shops_path %></h1
+        <%  @shops.each do |shop|%>
+            <h1><%= link_to 'ルーレット', "/shops/random/#{shop.id}" %></h1>
+        <%end%>
+
+    </div>
+  </div>
+</div>

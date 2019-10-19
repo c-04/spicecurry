@@ -1,0 +1,65 @@
+<div class="main">
+  <div class="container">
+    <div class="inner">
+      <div class="show-box">
+        <div class="shop-show-img">
+            <%= attachment_image_tag @shop, :image,fallback: "no_image.jpg", size:'400x400'%>
+        </div>
+        <ul>
+          <h1><li><%= @shop.name %></li></h1>
+          <li>最寄駅：<%= @shop.station %></li>
+
+          <%= link_to @shop.place, target: :_blank do %>
+          <li><%= @shop.place_name %></li>
+          <% end %>
+
+          <%= link_to @shop.instagram, target: :_blank do %>
+          <li><i class="fab fa-instagram"></i></li>
+          <% end %>
+        </ul>
+      </div>
+        <% if @shop.bookmark_by?(current_user) %>
+            <%= link_to shop_bookmark_path(@shop), method: :delete do %>
+            <h3>いいね</h3>
+            <% end %>
+        <% else %>
+            <%= link_to shop_bookmark_path(@shop), method: :post do %>
+              <h3 >いいね</h3>
+            <% end %>
+        <% end %>
+
+        <%= @shop.bookmarks.count %> いいね
+
+
+
+
+
+
+
+
+
+        <%= form_for [@shop, @post_comment] do |f| %>
+          <%= f.text_area :comment, placeholder: "コメントをここに" %>
+           <%= f.submit "送信する" %>
+        <%end%>
+
+        <%= @shop.post_comments.count %>
+
+        <% @shop.post_comments.each do |post_comment| %>
+        <div class="show-box">
+          <%= link_to user_path(post_comment.user.id) do %>
+               
+               <%= attachment_image_tag post_comment.user, :profile_image,fallback: "no_image.jpg", size:'100x100'%>
+         <% end %>
+          <%= post_comment.user.name %>
+          <%= post_comment.comment %>
+          </div>
+        <%end%>
+
+
+
+      <h1 class="aaa"><%= link_to 'トップに戻る',shops_path %></h1>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nomi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/48a612f29e.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar">
+        <div class="navbar_container clearfix">
+          <a class="navbar-title"><%= link_to '大阪スパイスカレー図鑑', shops_path %></a>
+
+          <ul class="navbar-right">
+            <% if user_signed_in? %>
+                  <li><%= link_to "ユーザログアウト　", destroy_user_session_path, method: :delete%></li>
+                  <li><%= link_to "管理者ログアウト　", destroy_administrator_page_session_path, method: :delete%></li>
+            <% else %>
+                  <li><%= link_to 'トップページ', "/" %></li>
+                  <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+                  <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+
+          </ul>
+        </div>
+     </nav>
+  <%= yield %>
+      <nav class="navbar">
+        <div class="navbar_container clearfix">
+          <ul class="">
+
+            <%= link_to shops_path do %>
+            <li><i class="fas fa-bars"></i></li>
+            <% end %>
+
+            <%= link_to shops_path do %>
+            <li><i class="fas fa-search"></i></li>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <%= link_to user_path(current_user) do %>
+                <li><i class="fas fa-user-alt"></i></li>
+            <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+                <li><i class="fas fa-user-alt"></i></li>
+              <% end %>
+            <% end %>
+
+
+          </ul>
+        </div>
+      </nav>
+  </body>
+</html>

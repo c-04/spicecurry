@@ -1,0 +1,2 @@
+module AdministratorPages::ShopsHelper
+end

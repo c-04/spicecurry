@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  kana_name: MyString
+  station: MyString
+  place: MyString
+  instagram: MyText
+
+two:
+  name: MyString
+  kana_name: MyString
+  station: MyString
+  place: MyString
+  instagram: MyText

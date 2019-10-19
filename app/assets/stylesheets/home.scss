@@ -1,0 +1,79 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//共通
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+li {
+    list-style: none;
+  }
+
+a {
+    text-decoration: none;
+    color: #2d3133;
+
+   }
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+body {
+    //font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-family: 'M PLUS 1p', sans-serif;
+
+  }
+
+//ヘッダー
+.navbar {
+    height: 46px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:  #ffdb4f;
+    border-bottom: 1px solid #f4f4f4;
+  }
+
+.navbar_container {
+    width: 728px;
+    line-height: 46px;
+    margin: 0 auto;
+  }
+
+.navbar-title {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+.navbar-right{
+  float: right;
+}
+.navbar-right li{
+  float: left;
+}
+//共通
+.main {
+    display: block;
+    position: relative;
+    background-color: #ffdb4f;
+  }
+
+.container {
+    max-width: 728px;
+    margin: 0 auto;
+    background-color:#ffdb4f;
+  }
+
+.inner {
+    padding: 40px 0px;
+    border-radius: 10px;
+    //background-color:red;
+  }

@@ -1,0 +1,31 @@
+// Place all the styles related to the shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//show
+.title{
+  font-family: 'M PLUS 1p', sans-serif;
+  font-size: 70px;
+}
+
+.top-box{
+  background-color: #ffdb4f;
+  width: 500px;
+  margin: 0 auto;
+}
+.show-box{
+  margin: 20px auto;
+  width: 500px;
+  background-color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+}
+.shop-show-img{
+  margin: 0 auto;
+
+}
+
+.shop-show-img img{
+  border-radius: 50%;
+  margin: 30px 0;
+}

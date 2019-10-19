@@ -1,0 +1,27 @@
+<div class="main">
+  <div class="container">
+    <div class="inner">
+      <div class="show-box">
+        <div class="shop-show-img">
+            <%= attachment_image_tag @shop, :image,fallback: "no_image.jpg", size:'400x400'%>
+        </div>
+        <ul>
+          <h1><li><%= @shop.name %></li></h1>
+          <li>最寄駅：<%= @shop.station %></li>
+
+
+          <%= link_to @shop.place, target: :_blank do %>
+          <li><%= @shop.place_name %></li>
+          <% end %>
+
+          <%= link_to @shop.instagram, target: :_blank do %>
+          <li><i class="fab fa-instagram"></i></li>
+          <% end %>
+        </ul>
+      </div>
+      <h1><%= link_to '編集',edit_administrator_pages_shop_path %></h1>
+      <h1><%= link_to 'トップに戻る',administrator_pages_shops_path %></h1>
+
+    </div>
+  </div>
+</div>
