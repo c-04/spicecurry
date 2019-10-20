@@ -14,50 +14,40 @@
   </head>
 
   <body>
+    <div class="wrapper">
     <nav class="navbar">
         <div class="navbar_container clearfix">
           <a class="navbar-title"><%= link_to '大阪スパイスカレー図鑑', shops_path %></a>
-          <li><%= link_to "管理者ログアウト　", destroy_administrator_page_session_path, method: :delete%></li>
-
-          <ul class="navbar-right">
-            <% if user_signed_in? %>
-                  <li><%= link_to "ユーザログアウト　", destroy_user_session_path, method: :delete%></li>
-                  <li><%= link_to "管理者ログアウト　", destroy_administrator_page_session_path, method: :delete%></li>
-            <% else %>
-                  <li><%= link_to 'トップページ', "/" %></li>
-                  <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-                  <li><%= link_to 'ログイン', new_user_session_path %></li>
-            <% end %>
-
-          </ul>
         </div>
      </nav>
   <%= yield %>
-      <nav class="navbar">
-        <div class="navbar_container clearfix">
-          <ul class="">
+      <footer>
+        <div class=footer>
+        <ul>
 
-            <%= link_to shops_path do %>
-            <li><i class="fas fa-bars"></i></li>
-            <% end %>
 
-            <%= link_to shops_path do %>
-            <li><i class="fas fa-search"></i></li>
-            <% end %>
+          <%= link_to shops_path do %>
+              <li><i class="fas fa-pepper-hot"></i></li>
+          <% end %>
 
-            <% if user_signed_in? %>
-              <%= link_to user_path(current_user) do %>
+          <%= link_to shops_path do %>
+              <li><i class="fas fa-search"></i></li>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <%= link_to user_path(current_user.id) do %>
                 <li><i class="fas fa-user-alt"></i></li>
             <% end %>
-            <% else %>
-              <%= link_to new_user_session_path do %>
-                <li><i class="fas fa-user-alt"></i></li>
-              <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <li><i class="fas fa-user-alt"></i></li>
             <% end %>
+          <% end %>
 
 
-          </ul>
+        </ul>
         </div>
-      </nav>
+      </footer>
+    </div>
   </body>
 </html>

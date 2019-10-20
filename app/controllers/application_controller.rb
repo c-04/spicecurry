@@ -5,7 +5,12 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 before_action :authenticate_user!
 
 def after_sign_in_path_for(resource)
-  shops_path
+  case resource
+  when @administrator_page
+      administrator_pages_shops_path
+  when User
+      shops_path
+  end
 end
 
 

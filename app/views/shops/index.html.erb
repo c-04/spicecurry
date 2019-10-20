@@ -4,10 +4,28 @@
       <div class="top-box">
       <h1 class="title">大阪<br>スパイス<br>カレー図鑑</h1>
       </div>
-        <%  @random.each do |random|%>
-            <h1><%= link_to 'ルーレット', random_shop_path(random.id) %></h1>
-        <%end%>
+
+      <% if user_signed_in? %>
+
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <li>サインアップ</li>
+        <% end %>
+      <% end %>
+
+      <% if user_signed_in? %>
+
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <li>ログイン</li>
+        <% end %>
+      <% end %>
+
+      <%@random.each do |random|%>
+          <h1><%= link_to 'ルーレット', random_shop_path(random.id) %></h1>
+      <%end%>
     </div>
+
 
     <div class="inner">
       <%  @shops.each do |shop|%>
