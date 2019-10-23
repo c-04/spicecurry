@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container">
       <div class="inner">
-        <div class="user-box">
+        <div class="user-profile-box">
 
           <ul>
             <li><%= attachment_image_tag @user, :profile_image,fallback: "no_image.jpg", size:'100x100'%></li>
@@ -11,6 +11,32 @@
             <li><%= link_to "ユーザログアウト　", destroy_user_session_path, method: :delete%></li>
           </ul>
         </div>
+        <ul class="user-show-icon-box clearfix">
+          <li><i class="fas fa-check-circle user-show-icon"></i></li>
+
+          <%= link_to favorites_user_path(@user.id) do %>
+              <li><i class="far fa-star user-show-icon"></i></li>
+          <% end %>
+
+          <%= link_to comments_user_path(@user.id) do %>
+              <li><i class="far fa-comment user-show-icon"></i></li>
+          <% end %>
+
+          <%= link_to bookmarks_user_path(@user.id) do %>
+              <li><i class="far fa-bookmark user-show-icon"></i></li>
+          <% end %>
+
+
+        </ul>
+
+          <% @eats.each do |eat| %>
+            <div class="user-profile-item-box clearfix">
+              <% shop = Shop.find(eat.shop_id) %>
+              <p><%= attachment_image_tag shop, :image,fallback: "no_image.jpg", size:'90x90'%></p>
+              <p class="user-profile-item-shop-name"><%=shop.name%></p>
+            </div>
+          <% end %>
+
 
 
       </div>

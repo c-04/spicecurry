@@ -21,6 +21,7 @@
     position: relative;/*←相対位置*/
     padding-bottom: 120px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+    background-color:  #ffdb4f;
 }
 
 footer{
@@ -38,7 +39,10 @@ footer{
 .footer{
  width:728px;
  margin: 0 auto;
+ display: flex;
+ justify-content: center;
 }
+
 footer li{
  float: left;
  margin: 0 100px;

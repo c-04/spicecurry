@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="container">
+    <div class="inner">
+      <%= search_form_for @q, enforce_utf8: false, url: search_shops_path do |f| %>
+        <%= f.label :店名 %>
+        <%= f.search_field :name_cont %>
+        <%= f.label :駅名 %>
+        <%= f.search_field :station_cont %>
+        <%= f.submit %>
+      <% end %>
+
+      <%  @shops.each do |shop|%>
+          <div class="show-box">
+          <div class="shop-show-img">
+          <%= link_to shop_path(shop.id) do %>
+              <%= attachment_image_tag shop, :image,fallback: "no_image.jpg", size:'350x350' %>
+          <% end %>
+          </div>
+          <h1><%= link_to shop.name,shop_path(shop.id) %></h1>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

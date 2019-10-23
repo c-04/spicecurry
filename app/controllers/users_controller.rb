@@ -14,6 +14,24 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
+    @bookmarks = Bookmark.where(user_id: @user.id).all
+    @eats = Eat.where(user_id: @user.id).all
+    @comments=PostComment.where(user_id: @user.id).all
+  end
+
+  def comments
+    @user=User.find(params[:id])
+    @comments=PostComment.where(user_id: @user.id).all
+  end
+
+  def bookmarks
+    @user=User.find(params[:id])
+    @bookmarks = Bookmark.where(user_id: @user.id).all
+  end
+
+  def favorites
+    @user=User.find(params[:id])
+    @favorites = Favorite.where(user_id: @user.id).all
   end
 
   def edit

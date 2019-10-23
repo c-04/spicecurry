@@ -2,12 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-box{
+.user-profile-box{
   text-align: center;
 }
 
 
 //usershow
-.user-box img{
+.user-profile-box img{
   border-radius: 50%;
+}
+.user-profile-item-box{
+  margin: 20px auto;
+  width: 500px;
+  height: 100px;
+  background-color: #FFF;
+  border-radius: 30px;
+}
+
+.user-show-icon{
+  font-size: 50px;
+}
+.user-show-icon-box{
+  display: flex;
+  justify-content: center;
+}
+.user-show-icon-box li{
+  float: left;
+  margin-right:40px;
+}
+
+.user-profile-item-box{
+  
+  justify-content: center;
+}
+.user-profile-item-box p{
+  float: left;
+}
+.user-profile-item-box img{
+  border-radius: 50%;
+  margin: 5px 20px;
+}
+
+.user-profile-item-shop-name{
+  line-height: 100px;
+}
+
+// comment
+.user-profile-item-box h4{
+  padding-top: 10px;
 }

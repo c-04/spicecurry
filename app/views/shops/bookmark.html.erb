@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="container">
+    <div class="inner">
+      <%  @bookmark_ranks.each do |shop|%>
+          <div class="show-box">
+          <div class="shop-show-img">
+          <%= link_to shop_path(shop.id) do %>
+              <%= attachment_image_tag shop, :image,fallback: "no_image.jpg", size:'350x350' %>
+          <% end %>
+          </div>
+          <h1><%= link_to shop.name,shop_path(shop.id) %></h1>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

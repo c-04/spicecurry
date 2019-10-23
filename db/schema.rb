@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_155231) do
+ActiveRecord::Schema.define(version: 2019_10_22_175804) do
 
   create_table "administrator_pages", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 2019_10_18_155231) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "shop_id"
     t.datetime "created_at", null: false

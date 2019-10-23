@@ -24,6 +24,11 @@
       <%@random.each do |random|%>
           <h1><%= link_to 'ルーレット', random_shop_path(random.id) %></h1>
       <%end%>
+
+      <%= link_to 'タベタ順', eat_shops_path %>
+      <%= link_to 'カンゲキ順', favorite_shops_path %>
+      <%= link_to 'ブックマーク順', bookmark_shops_path %>
+
     </div>
 
 
