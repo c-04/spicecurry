@@ -29,7 +29,8 @@ a {
 body {
     //font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-family: 'M PLUS 1p', sans-serif;
-    background-color:  #ffdb4f;
+    // background-color:  #ffdb4f;
+    background-color:  #fff;
 
   }
 
@@ -73,3 +74,18 @@ body {
     border-radius: 10px;
     //background-color:red;
   }
+
+  @media screen and (max-width:768px) {
+    body{
+      width: 100%;
+      padding: 0 5%;
+    }
+
+    .navbar_container{
+      width: 100%;
+    }
+
+    .top-box{
+      width: 100%;
+    }
+}

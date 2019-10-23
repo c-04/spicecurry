@@ -62,3 +62,16 @@ i.shop-show-icon {
   float: left;
 
 }
+
+@media screen and (max-width:768px) {
+  .top-box{
+    width: 100%;
+  }
+  .show-box{
+    width: 90%;
+  }
+  .shop-show-img img{
+    height: 300px;
+    width: 300px;
+  }
+}
