@@ -9,7 +9,7 @@ def after_sign_in_path_for(resource)
   when @administrator_page
       administrator_pages_shops_path
   when User
-      shops_path
+        user_path(current_user)
   end
 end
 

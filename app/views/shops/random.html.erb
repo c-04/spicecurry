@@ -2,29 +2,104 @@
   <div class="container">
     <div class="inner">
       <div class="show-box">
-      <%  @shops.each do |shop|%>
-          <ul>
-            <div class="shop-show-img">
-                <%= attachment_image_tag @shop, :image,fallback: "no_image.jpg", size:'400x400'%>
+        <div class="shop-show-img">
+            <%= attachment_image_tag @shop, :image,fallback: "no_image.jpg", size:'400x400'%>
+        </div>
+        <ul>
+          <h1><li><%= @shop.name %></li></h1>
+          ブクマ数<%= @shop.bookmarks.count %>
+          タベタ数<%= @shop.eats.count %>
+          <li>最寄駅：<%= @shop.station %></li>
+
+
+          <li><%= @shop.place_name %></li>
+
+          <div class="shop-show-items clearfix">
+            <div class="shop-show-map">
+              <%= link_to  @shop.place, target: :_blank do %>
+                <li>マップ</li>
+                <li><i class="fas fa-map-marker-alt shop-show-icon"></i></li>
+              <% end %>
             </div>
-            <h1><li><%= shop.name %></li></h1>
-            <li>最寄駅：<%= shop.station %></li>
+            <div class="shop-show-instagram">
+              <%= link_to @shop.instagram, target: :_blank do %>
+                <li>インスタ</li>
+                <li><i class="fab fa-instagram shop-show-icon"></i></li>
+              <% end %>
+            </div>
+          </div>
+          <div class="shop-show-items2 clearfix">
+            <div class="shop-show-tabeta">
+              <% if @shop.eat_by?(current_user) %>
+                <%= link_to shop_eat_path(@shop), method: :delete do %>
+                <li>タベタ</li>
+                <li><i class="fas fa-check-circle shop-show-icon"></i></li>
+                <% end %>
+              <% else %>
+                <%= link_to shop_eat_path(@shop), method: :post do %>
+                  <li>タベタ</li>
+                  <li><i class="far fa-check-circle shop-show-icon"></i></li>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="shop-show-favorite">
+              <% if @shop.favorite_by?(current_user) %>
+                <%= link_to shop_favorites_path(@shop), method: :delete do %>
+                <li>カンゲキ</li>
+                <li><i class="fas fa-star  shop-show-icon"></i></li>
+                <% end %>
+              <% else %>
+                <%= link_to shop_favorites_path(@shop), method: :post do %>
+                  <li>カンゲキ</li>
+                  <li><i class="far fa-star shop-show-icon"></i></li>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="shop-show-bkm">
+              <% if @shop.bookmark_by?(current_user) %>
+                <%= link_to shop_bookmark_path(@shop), method: :delete do %>
+                <li>ブクマ</li>
+                <li><i class="fas fa-bookmark shop-show-icon"></i></li>
+                <% end %>
+              <% else %>
+                <%= link_to shop_bookmark_path(@shop), method: :post do %>
+                  <li>ブクマ</li>
+                  <li><i class="far fa-bookmark shop-show-icon"></i></li>
+                <% end %>
+              <% end %>
+            </div>
 
 
-            <%= link_to shop.place, target: :_blank do %>
-            <li><%= shop.place_name %></li>
-            <% end %>
 
-            <%= link_to shop.instagram, target: :_blank do %>
-            <li><i class="fab fa-instagram"></i></li>
-            <% end %>
-          </ul>
-        <% end %>
+
+          </div>
+        </ul>
       </div>
-      <h1><%= link_to 'トップに戻る',shops_path %></h1
-        <%  @shops.each do |shop|%>
-            <h1><%= link_to 'ルーレット', "/shops/random/#{shop.id}" %></h1>
+
+
+        <%= form_for [@shop, @post_comment] do |f| %>
+          <p>お店のコメントを書く</p>
+          <div class="comment-box">
+            <%= f.text_area :comment, placeholder: "コメントをここに※最大３０文字" %>
+          </div>
+          <div class="comment-submit">
+           <%= f.submit "送信", :class=>"btn" %>
+           </div>
         <%end%>
+
+        <% @shop.post_comments.reverse.each do |post_comment| %>
+        <div class="user-profile-item-box clearfix">
+          <%= link_to user_path(post_comment.user.id) do %>
+              <p><%= attachment_image_tag post_comment.user, :profile_image,fallback: "no_image.jpg", size:'90x90'%></p>
+         <% end %>
+          <h4><%= post_comment.user.name %></h4>
+          <h4><%= post_comment.comment %></h4>
+          </div>
+        <%end%>
+
+
 
     </div>
   </div>

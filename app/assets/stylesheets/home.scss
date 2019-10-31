@@ -30,9 +30,33 @@ body {
     //font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-family: 'M PLUS 1p', sans-serif;
     // background-color:  #ffdb4f;
-    background-color:  #fff;
+    background-color:  #ffdb4f;
 
   }
+
+//about
+.about-box{
+  background-color: red;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto;
+  background-color: #FFF;
+  border-radius: 50px;
+
+}
+
+.about-box-text{
+  // height: 100px;
+  // background-color: blue;
+}
+
+.about-box-icon{
+  // background-color: green;
+}
+
+
 
 //ヘッダー
 .navbar {
@@ -74,6 +98,43 @@ body {
     border-radius: 10px;
     //background-color:red;
   }
+.rank-box li{
+  margin-top: 10px;
+  float: left;
+  text-align: center;
+  width: 200px;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: .4s;
+}
+
+.rank-text a{
+  color: white;
+}
+
+.roulette-btn{
+  background-color: blue;
+  margin-left: 40px;
+}
+
+.eat-btn{
+  background-color: orange;
+  margin-right: 40px;
+  margin-left: 20px;
+}
+
+.favorite-btn{
+  background-color: red;
+  margin-left: 40px;
+}
+.bookmark-btn{
+  background-color: green;
+  margin-right: 40px;
+  margin-left: 20px;
+}
 
   @media screen and (max-width:768px) {
     body{
@@ -85,7 +146,34 @@ body {
       width: 100%;
     }
 
-    .top-box{
+    .rank-box{
+      text-align: center;
+    }
+    .rank-box li{
+      float: none;
+    }
+    .roulette-btn{
+      margin-left: 0px;
+    }
+    .eat-btn{
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    .favorite-btn{
+      margin-left: 0px;
+    }
+    .bookmark-btn{
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+
+    .about-box{
       width: 100%;
     }
+    .about-box-text p{
+      font-size: 10px;
+    }
+
+
+
 }

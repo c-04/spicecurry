@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//index
+
 //show
 .title{
   font-family: 'M PLUS 1p', sans-serif;
@@ -50,11 +52,21 @@ i.shop-show-icon {
   float: left;
 }
 
+.shop-show-items2{
+  padding: 20px 70px;
+}
 .shop-show-tabeta{
   width: 100px;
   height: 100px;
   float: left;
-  margin-right: 30px;
+  margin-right: 20px;
+}
+
+.shop-show-favorite{
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 20px;
 }
 .shop-show-bkm{
   width: 100px;
@@ -63,7 +75,93 @@ i.shop-show-icon {
 
 }
 
+// コメントフォーム
+form {
+    text-align: center;
+    padding: 10px 0px;
+  }
+.comment-box {
+    margin: 10px auto;
+    position: relative;
+    width:500px;
+  }
+
+  .comment-box textarea {
+    font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    height: 120px;
+    margin: 8px 0;
+    padding: 0.3em;
+    transition: 0.3s;
+    padding-left: 40px;
+    outline: none;
+    border: 1px solid #FFF;
+    border-radius: 30px;
+  }
+
+  .btn {
+      display: inline-block;
+      padding: 7px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      color: black;
+      background-color: #FFF;
+      transition: .4s;
+      font-family: 'M PLUS 1p', sans-serif;
+      font-size: 12px;
+    }
+
+    .btn:hover {
+      background-color: #2d3133;
+    }
+
+    //search
+    form {
+        text-align: center;
+        padding: 10px 0px;
+      }
+    .search-box {
+        margin: 10px auto;
+        position: relative;
+        width:500px;
+      }
+
+      .search-form {
+        font: 15px/24px sans-serif;
+        box-sizing: border-box;
+        width: 50%;
+        height: 40px;
+        margin: 8px 0;
+        padding: 0.3em;
+        transition: 0.3s;
+        padding-left: 40px;
+        outline: none;
+        border: 1px solid #FFF;
+        border-radius: 50px;
+      }
+
+      .btn {
+          display: inline-block;
+          padding: 7px 20px;
+          border-radius: 25px;
+          text-decoration: none;
+          color: black;
+          background-color: #FFF;
+          transition: .4s;
+          font-family: 'M PLUS 1p', sans-serif;
+          font-size: 12px;
+        }
+
+        .btn:hover {
+          background-color: #2d3133;
+        }
+
+
 @media screen and (max-width:768px) {
+  .title{
+    font-size: 50px;
+  }
   .top-box{
     width: 100%;
   }
@@ -71,7 +169,45 @@ i.shop-show-icon {
     width: 90%;
   }
   .shop-show-img img{
-    height: 300px;
-    width: 300px;
+    height: 90%;
+    width: 90%;
+  }
+  .shop-show-items{
+    padding: 10px 10px;
+  }
+  i.shop-show-icon {
+    font-size: 50px;
+  }
+
+  .shop-show-map {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .shop-show-instagram {
+  margin-right: 10px;
+  }
+
+  .shop-show-items2 {
+    padding: 10px 10px;
+  }
+  .shop-show-tabeta {
+    width: 70px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .shop-show-favorite {
+    width: 70px;
+    margin-right: 5px;
+  }
+  .shop-show-bkm {
+    width: 70px;
+      margin-right: 5px;
+    }
+  .comment-box {
+    width: 90%;
+  }
+  //search
+  .search-box  {
+    width:100%;
   }
 }

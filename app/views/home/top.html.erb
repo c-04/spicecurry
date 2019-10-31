@@ -1,8 +1,83 @@
 <div class="main">
   <div class="container">
     <div class="inner">
-      <h1>大阪スパイスカレー図鑑</h1>
-      <h1><%= link_to '見に行く',shops_path %></h1>
+      <div class="top-box">
+      <h1 class="title">大阪<br>スパイス<br>カレー図鑑</h1>
+      </div>
+      <%= link_to 'ちょっと見てみる', shops_path %>
+      <%= link_to new_user_registration_path do %>
+        <li>会員登録</li>
+      <% end %>
+      <%= link_to new_user_session_path do %>
+        <li>ログイン</li>
+      <% end %>
+
+    </div>
+
+      <h2>一人でできること</h2>
+      <div class="about-box">
+        <div class="about-box-text">
+          <h3>タベタカレーをコレクション</h3>
+          <p>タベタボタンを押すとこれまでにタベタスパイスカレーが<br>コレクションとして保存され記録を残せます</p>
+        </div>
+        <div class="about-box-icon">
+          <li><i class="fas fa-check-circle shop-show-icon"></i></li>
+          <li>タベタ</li>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <div class="about-box-text">
+          <h3>カンゲキしたお店をクリップ</h3>
+          <p>あのめちゃくちゃ美味しかったお店<br>また訪れたいと思ったお店をカンゲキボタンでもう忘れません</p>
+        </div>
+        <div class="about-box-icon">
+          <li><i class="far fa-star shop-show-icon"></i></li>
+          <li>カンゲキ</li>
+        </div>
+      </div>
+      <div class="about-box">
+        <div class="about-box-text">
+          <h3>気になるお店をブックマーク</h3>
+          <p>見つけたお店、今度あの子と行きたいお店を<br>ブックマークボタンで保存ができます</p>
+        </div>
+        <div class="about-box-icon">
+          <li><i class="far fas fa-bookmark user-show-icon"></i></li>
+          <li>ブクマ</li>
+        </div>
+      </div>
+      <div class="about-box">
+        <div class="about-box-text">
+          <h3>新しいスパイスカレーとの出会い</h3>
+          <p>知らないお店、いつもは行かないお店にいってみようかなと<br>冒険心が強い日はランダム機能や最寄りの駅の検索などで<br>はじめてのお店と出会うことができます</p>
+        </div>
+        <div class="about-box-icon">
+          <li><i class="far fas fa-bookmark user-show-icon"></i></li>
+          <li>ブクマ</li>
+        </div>
+      </div>
+
+      <h2>みんなの力でできるようになること</h2>
+      <div class="about-box">
+        <div class="about-box-text">
+          <h3>注目されているお店ランキング</h3>
+          <p>みんながタベタ カンゲキ ブックマークのボタンを<br>押すことでそれぞれのジャンルのランキングが作成されます</p>
+        </div>
+        <div class="about-box-icon">
+          <li>ブクマ</li>
+          <li><i class="far fas fa-bookmark user-show-icon"></i></li>
+        </div>
+      </div>
+      <div class="about-box">
+        <div class="about-box-text">
+          <h3>応戦コメントでお店の推しポイントがわかる</h3>
+          <p>一人一人が好きなお店の応援コメントを投稿することにより<br>お店の魅力を知ってから訪れることができます</p>
+        </div>
+        <div class="about-box-icon">
+          <li><i class="far fas fa-bookmark user-show-icon"></i></li>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

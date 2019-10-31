@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   #ログイン認証をスキップする
-  skip_before_action :authenticate_user! ,{only: [:index,:random]}
+  skip_before_action :authenticate_user! ,{only: [:index]}
 
   def index
     @random = Shop.order("RANDOM()").limit(1)
@@ -8,6 +8,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
     @shop=Shop.find(params[:id])
     @post_comment = PostComment.new
   end
@@ -15,6 +16,7 @@ class ShopsController < ApplicationController
   def random
     @shop=Shop.find(params[:id])
     @shops = Shop.order("RANDOM()").limit(1)
+    @post_comment = PostComment.new
   end
 
   def search

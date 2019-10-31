@@ -28,7 +28,7 @@
               <% end %>
             </div>
           </div>
-          <div class="shop-show-items clearfix">
+          <div class="shop-show-items2 clearfix">
             <div class="shop-show-tabeta">
               <% if @shop.eat_by?(current_user) %>
                 <%= link_to shop_eat_path(@shop), method: :delete do %>
@@ -43,16 +43,16 @@
               <% end %>
             </div>
 
-            <div class="shop-show-tabeta">
+            <div class="shop-show-favorite">
               <% if @shop.favorite_by?(current_user) %>
                 <%= link_to shop_favorites_path(@shop), method: :delete do %>
                 <li>カンゲキ</li>
-                <li><i class="fas fa-check-circle shop-show-icon"></i></li>
+                <li><i class="fas fa-star  shop-show-icon"></i></li>
                 <% end %>
               <% else %>
                 <%= link_to shop_favorites_path(@shop), method: :post do %>
                   <li>カンゲキ</li>
-                  <li><i class="far fa-check-circle shop-show-icon"></i></li>
+                  <li><i class="far fa-star shop-show-icon"></i></li>
                 <% end %>
               <% end %>
             </div>
@@ -79,33 +79,26 @@
       </div>
 
 
-        ブクマ数<%= @shop.bookmarks.count %>
-        カンゲキ数<%= @shop.favorites.count %>
-
-
-
-
-
-
-
-
-
         <%= form_for [@shop, @post_comment] do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントをここに" %>
-           <%= f.submit "送信する" %>
+          <p>お店の応援コメントを書く</p>
+          <div class="comment-box">
+            <%= f.text_area :comment, placeholder: "コメントをここに※最大３０文字" %>
+          </div>
+          <div class="comment-submit">
+           <%= f.submit "送信", :class=>"btn" %>
+           </div>
         <%end%>
 
-        <%= @shop.post_comments.count %>
-
-        <% @shop.post_comments.each do |post_comment| %>
-        <div class="show-box">
+        <% @shop.post_comments.reverse.each do |post_comment| %>
+        <div class="user-profile-item-box clearfix">
           <%= link_to user_path(post_comment.user.id) do %>
-              <%= attachment_image_tag post_comment.user, :profile_image,fallback: "no_image.jpg", size:'100x100'%>
+              <p><%= attachment_image_tag post_comment.user, :profile_image,fallback: "no_image.jpg", size:'90x90'%></p>
          <% end %>
-          <%= post_comment.user.name %>
-          <%= post_comment.comment %>
+          <h4><%= post_comment.user.name %></h4>
+          <h4><%= post_comment.comment %></h4>
           </div>
         <%end%>
+
 
 
     </div>

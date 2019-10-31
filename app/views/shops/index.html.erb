@@ -5,29 +5,17 @@
       <h1 class="title">大阪<br>スパイス<br>カレー図鑑</h1>
       </div>
 
-      <% if user_signed_in? %>
+      <div class="top-box rank-box clearfix">
+        <ul>
+          <%@random.each do |random|%>
+              <li class="rank-text roulette-btn"><%= link_to 'ランダム', random_shop_path(random.id) %></li>
+          <%end%>
 
-      <% else %>
-        <%= link_to new_user_session_path do %>
-          <li>サインアップ</li>
-        <% end %>
-      <% end %>
-
-      <% if user_signed_in? %>
-
-      <% else %>
-        <%= link_to new_user_session_path do %>
-          <li>ログイン</li>
-        <% end %>
-      <% end %>
-
-      <%@random.each do |random|%>
-          <h1><%= link_to 'ルーレット', random_shop_path(random.id) %></h1>
-      <%end%>
-
-      <%= link_to 'タベタ順', eat_shops_path %>
-      <%= link_to 'カンゲキ順', favorite_shops_path %>
-      <%= link_to 'ブックマーク順', bookmark_shops_path %>
+          <li class="rank-text  eat-btn"><%= link_to 'タベタ順', eat_shops_path %></li>
+          <li class="rank-text favorite-btn"><%= link_to 'カンゲキ順', favorite_shops_path %></li>
+          <li class="rank-text bookmark-btn"><%= link_to 'ブックマーク順', bookmark_shops_path %></li>
+        </ul>
+      </div>
 
     </div>
 

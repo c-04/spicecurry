@@ -2,11 +2,25 @@
   <div class="container">
     <div class="inner">
       <%= search_form_for @q, enforce_utf8: false, url: search_shops_path do |f| %>
-        <%= f.label :店名 %>
-        <%= f.search_field :name_cont %>
-        <%= f.label :駅名 %>
-        <%= f.search_field :station_cont %>
-        <%= f.submit %>
+      <div class="search-box">
+        <ul>
+          <li><%= f.label :店名 %></li>
+          <li><%= f.search_field :name_cont,class:"search-form" %></li>
+        </ul>
+      </div>
+      <div class="search-box">
+        <ul>
+          <li><%= f.label :駅名 %></li>
+          <li><%= f.search_field :station_cont,class:"search-form" %></li>
+        </ul>
+      </div>
+      <div class="search-box">
+        <ul>
+          <li><%= f.label :住所 %></li>
+          <li><%= f.search_field :place_name_cont,class:"search-form" %></li>
+        </ul>
+      </div>
+        <%= f.submit "検索" , :class=>"btn"%>
       <% end %>
 
       <%  @shops.each do |shop|%>
@@ -19,6 +33,22 @@
           <h1><%= link_to shop.name,shop_path(shop.id) %></h1>
           </div>
       <% end %>
+
+      <div class="show-box">
+
+      <h2>あれっ!あのカレー屋さんがない！？</h2>
+      <h5>大阪スパイスカレー図鑑はまだまだ未完成</h5>
+      <h5>結果がなかったことをシェアしてお店の情報を運営に教えてください！</h5>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+          data-size="large"
+          data-text="【大阪スパイスカレー図鑑】店舗追加希望&#13;&#10;"
+          data-url="https://spicecurry.herokuapp.com/"
+          data-hashtags="大阪スパイスカレー図鑑"
+          data-lang="ja"
+          data-show-count="false">Tweet</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
 
     </div>
   </div>

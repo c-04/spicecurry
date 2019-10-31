@@ -1,34 +1,24 @@
-
-
 <div class="main">
     <div class="container">
       <div class="inner">
-        <div class="user-box">
-          <%= form_for(@user, url: user_path, method: :patch) do |f| %>
-          
-          <div class="field">
+        <%= form_for(@user, url: user_path, method: :patch) do |f| %>
+            <div class="user-edit-box">
               <%= f.label :name,"名前"%><br />
-              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-          </div>
-
-          <div class="form-group has-icon">
-            <%= f.label :image,"プロフィール画像" %><br />
-            <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
-            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
-        　</div>
-
-        　<div class="field">
-            <%= f.label :introduction,"コメント" %><br />
-            <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
-          </div>
-
-          <div class="actions">
-            <%= f.submit "変更を保存" %>
-          </div>
-            <% end %>
-            <%= link_to "ユーザ退会", user_path(@user.id), method: :delete,class: 'btn-sm btn-danger ',"data-confirm" => "本当に削除しますか？"%>
-
-
+              <%= f.text_area :name, autofocus: true, autocomplete: "name" %>
+            </div>
+            <div class="">
+              <%= f.label :image,"プロフィール画像" %><br />
+              <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "" %>
+            </div>
+            <div class="user-edit-box">
+              <%= f.label :introduction,"コメント" %><br />
+              <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+            </div>
+            <%= f.submit "変更を保存", :class=>"btn" %>
+        <% end %>
+            <%= link_to "プロフィールに戻る　", user_path(@user.id)%>
+            <%= link_to "ユーザログアウト　", destroy_user_session_path, method: :delete%>
+            <%= link_to "退会はこちらから", leave_user_path(@user.id)%>
       </div>
     </div>
   </div>

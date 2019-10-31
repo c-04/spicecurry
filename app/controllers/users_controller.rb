@@ -51,6 +51,10 @@ class UsersController < ApplicationController
 
   end
 
+  def leave
+      @user=User.find(params[:id])
+  end
+
   def destroy
     user = User.find(params[:id])
     user.destroy
