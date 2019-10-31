@@ -22,6 +22,16 @@
       <h1><%= link_to '編集',edit_administrator_pages_shop_path %></h1>
       <h1><%= link_to 'トップに戻る',administrator_pages_shops_path %></h1>
 
+      <% @shop.post_comments.reverse.each do |post_comment| %>
+      <div class="user-profile-item-box clearfix">
+        <%= link_to user_path(post_comment.user.id) do %>
+            <p><%= attachment_image_tag post_comment.user, :profile_image,fallback: "no_image.jpg", size:'90x90'%></p>
+       <% end %>
+        <h4><%= post_comment.user.name %></h4>
+        <h4><%= post_comment.comment %></h4>
+        </div>
+      <%end%>
+
     </div>
   </div>
 </div>
