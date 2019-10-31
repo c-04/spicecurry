@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   resources :shops,only:[:index,:show]do
     collection do
-      get :search
+      get "search"
       get "eat"
       get "favorite"
       get "bookmark"
