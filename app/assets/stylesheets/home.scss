@@ -109,10 +109,16 @@ body {
   border-radius: 25px;
   text-decoration: none;
   transition: .4s;
+  color: white;
 }
 
 .rank-text a{
   color: white;
+}
+
+.root-btn{
+  background-color: black;
+  margin-left: 40px;
 }
 
 .roulette-btn{
@@ -151,6 +157,9 @@ body {
     }
     .rank-box li{
       float: none;
+    }
+    .root-btn{
+      margin-left: 0px;
     }
     .roulette-btn{
       margin-left: 0px;

@@ -3,10 +3,15 @@
 <div class="main">
   <div class="container">
     <div class="inner">
-      <h1>大阪スパイスカレー冒険記</h1>
-      <h1>管理者</h1>
-      <h1><%= link_to "新規店舗追加", new_administrator_pages_shop_path %></h1>
-      <li><%= link_to "管理者ログアウト　", destroy_administrator_page_session_path, method: :delete%></li>
+      <h1>大阪スパイスカレー図鑑(管理者）</h1>
+      
+
+      <div class="top-box rank-box clearfix">
+        <ul>
+              <li class="rank-text root-btn"> <%= link_to "新規店舗追加", new_administrator_pages_shop_path %></li>
+              <li class="rank-text root-btn"><%= link_to "管理者ログアウト　", destroy_administrator_page_session_path, method: :delete%></li>
+        </ul>
+      </div>
     </div>
 
     <div class="inner">
